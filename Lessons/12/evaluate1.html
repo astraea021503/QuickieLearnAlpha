@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            display: block; /* Always display the question */
+        }
+        .choice {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        .choice:hover {
+            background-color: #e9ecef;
+        }
+        .correct {
+            background-color: #c8e6c9; /* Light green for correct answer */
+        }
+        .incorrect {
+            background-color: #ffcdd2; /* Light red for incorrect answer */
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 100%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+    </style>
+    <script>
+        let currentQuestionIndex = 0;
+
+        const questions = [
+            {
+                question: "What does the <code>&lt;!DOCTYPE html&gt;</code> declaration do?",
+                choices: [
+                    { text: "A. It links to an external stylesheet.", isCorrect: false },
+                    { text: "B. It defines the document type and version of HTML.", isCorrect: true },
+                    { text: "C. It creates a new HTML element.", isCorrect: false },
+                    { text: "D. It specifies the character set used in the document.", isCorrect: false },
+                ]
+            },
+            {
+                question: "How can you style an HTML element using the style attribute?",
+                choices: [
+                    { text: "A. By linking to a CSS file.", isCorrect: false },
+                    { text: "B. By using the style attribute directly in the HTML tag.", isCorrect: true },
+                    { text: "C. By creating a style tag in the head.", isCorrect: false },
+                    { text: "D. By applying a JavaScript function.", isCorrect: false },
+                ]
+            },
+            {
+                question: "What is the purpose of the alt attribute in an <img> tag?",
+                choices: [
+                    { text: "A. It specifies the image's file format.", isCorrect: false },
+                    { text: "B. It provides a text alternative for the image.", isCorrect: true },
+                    { text: "C. It determines the image's size.", isCorrect: false },
+                    { text: "D. It links the image to a URL.", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which of the following is an example of a nested HTML element?",
+                choices: [
+                    { text: "A. < div >< span ></ div ></ span >", isCorrect: false },
+                    { text: "B. < p >< b >This is bold text.</ b ></ p >", isCorrect: true },
+                    { text: "C. < img src='image.jpg' alt='Image' >", isCorrect: false },
+                    { text: "D. < hr >", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which HTML attribute is used to specify the URL of a linked document?",
+                choices: [
+                    { text: "A. src", isCorrect: false },
+                    { text: "B. href", isCorrect: true },
+                    { text: "C. link", isCorrect: false },
+                    { text: "D. url", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which of the following correctly applies a background color to an HTML element using the style attribute?",
+                choices: [
+                    { text: "A. < div style='background: red;' >", isCorrect: true },
+                    { text: "B. < div style='color: red;' >", isCorrect: false },
+                    { text: "C. < div background='red' >", isCorrect: false },
+                    { text: "D. < div bg-color='red' >", isCorrect: false },
+                ]
+            },
+            {
+                question: "What HTML element is used to create a horizontal line in a web page?",
+                choices: [
+                    { text: "A. < line >", isCorrect: false },
+                    { text: "B. < hr >", isCorrect: true },
+                    { text: "C. < break >", isCorrect: false },
+                    { text: "D. < separator >", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which of the following is the correct syntax for adding a comment in HTML?",
+                choices: [
+                    { text: "A. < !-- This is a comment -- >", isCorrect: true },
+                    { text: "B. /* This is a comment */", isCorrect: false },
+                    { text: "C. // This is a comment", isCorrect: false },
+                    { text: "D. # This is a comment", isCorrect: false },
+                ]
+            },
+            {
+                question: "What does the <code>&lt;head&gt;</code> element contain?",
+                choices: [
+                    { text: "A. The body of the document", isCorrect: false },
+                    { text: "B. Meta-information about the document", isCorrect: true },
+                    { text: "C. The main content of the page", isCorrect: false },
+                    { text: "D. The footer of the page", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which HTML element is used for the largest heading?",
+                choices: [
+                    { text: "A. < h1 >", isCorrect: true },
+                    { text: "B. < h6 >", isCorrect: false },
+                    { text: "C. < head >", isCorrect: false },
+                    { text: "D. < title >", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which attribute is used to specify the language of an HTML document?",
+                choices: [
+                    { text: "A. lang", isCorrect: true },
+                    { text: "B. language", isCorrect: false },
+                    { text: "C. xml:lang", isCorrect: false },
+                    { text: "D. locale", isCorrect: false },
+                ]
+            },
+            {
+                question: "What is the default display property of an < h1 > element?",
+                choices: [
+                    { text: "A. block", isCorrect: true },
+                    { text: "B. inline", isCorrect: false },
+                    { text: "C. inline-block", isCorrect: false },
+                    { text: "D. none", isCorrect: false },
+                ]
+            }
+        ];
+
+        function loadQuestion() {
+            const questionContainer = document.getElementById('questionContainer');
+            const currentQuestion = questions[currentQuestionIndex];
+            questionContainer.innerHTML = `
+                <div class="question">
+                    <h3>${currentQuestion.question}</h3>
+                    ${currentQuestion.choices.map((choice) => `
+                        <div class="choice" onclick="checkAnswer(${choice.isCorrect}, this)">${choice.text}</div>
+                    `).join('')}
+                </div>
+            `;
+            isAnswerCorrect = false; // Reset answer status for the new question
+        }
+
+        function checkAnswer(isCorrect, element) {
+            if (isCorrect) {
+                alert("Correct! " + questions[currentQuestionIndex].choices.find(c => c.isCorrect).text);
+                element.classList.add('correct');
+                isAnswerCorrect = true; // Set answer status to true
+            } else {
+                alert("Incorrect! Try again.");
+                element.classList.add('incorrect');
+                isAnswerCorrect = false; // Set answer status to false
+            }
+        }
+
+        function nextQuestion() {
+            if (!isAnswerCorrect) {
+                alert("Please select the correct answer before proceeding.");
+                return; // Prevent moving to the next question if the answer is incorrect
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                const button = document.querySelector('button');
+                button.innerHTML = "Go to Home"; // Change button text
+                button.setAttribute("onclick", "window.location.href='loading.html ,index.html'"); // Redirect to index.html
+                alert("You've completed the quiz!");
+            }
+        }
+
+        window.onload = function() {
+            loadQuestion();
+        };
+    </script>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="container">
+        <h1>Test your Knowledge</h1>
+        <p>Answer the following questions to see how much you’ve learned:</p>
+        <div id="questionContainer"></div>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+</body>
+</html>

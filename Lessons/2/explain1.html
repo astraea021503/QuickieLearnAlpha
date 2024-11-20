@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #343a40;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 60%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="container">
+        <h2>Understanding CSS and HTML Principles</h2>
+        
+        <h3>HTML Styles – CSS</h3>
+        <p><strong>Cascading Style Sheet (CSS)</strong>: CSS is a tool to add styles (color, fonts, layout) to HTML elements.</p>
+        
+        <h4>Types of CSS:</h4>
+<ul>
+    <li><strong>Inline CSS:</strong> CSS written directly within an HTML element’s style attribute. Example:
+        <pre>
+&lt;p style="color: blue;"&gt;This is styled with inline CSS.&lt;/p&gt;
+        </pre>
+    </li>
+    <li><strong>Internal CSS:</strong> CSS inside <code>&lt;style&gt;</code> tags within the <code>&lt;head&gt;</code> of an HTML document. Example:
+        <pre>
+&lt;style&gt;
+  p {
+    color: green;
+  }
+&lt;/style&gt;
+        </pre>
+    </li>
+    <li><strong>External CSS:</strong> CSS in a separate file (e.g., <code>styles.css</code>) and linked to the HTML document. Example:
+        <pre>
+&lt;link rel="stylesheet" href="styles.css"&gt;
+        </pre>
+    </li>
+</ul>
+
+
+        <h4>CSS Properties:</h4>
+        <ul>
+            <li><strong>Colors:</strong> <code>color</code>, <code>background-color</code>.</li>
+            <li><strong>Fonts and Sizes:</strong> <code>font-family</code>, <code>font-size</code>.</li>
+            <li><strong>Borders, Padding, and Margin:</strong> Examples of element spacing and structure.</li>
+        </ul>
+
+        <h3>HTML Links</h3>
+        <p><strong>Syntax:</strong> The <code>&lt;a&gt;</code> tag with <code>href</code> for hyperlinking. Example:
+            <pre>
+<a href="https://www.example.com">Visit Example</a>
+            </pre>
+        </p>
+        <ul>
+            <li><strong>target Attribute:</strong> Opens links in new tabs with <code>target="_blank"</code>.</li>
+            <li><strong>Image as a Link:</strong> Wrapping images within <code>&lt;a&gt;</code> tags to make them clickable.</li>
+            <li><strong>Button Styled Links:</strong> Using CSS to style links as buttons for a more interactive look.</li>
+        </ul>
+
+        <h3>CSS Links</h3>
+        <p><strong>Styling Links:</strong> Use pseudo-classes like <code>a:link</code>, <code>a:hover</code>, <code>a:visited</code>, <code>a:active</code>.</p>
+        <ul>
+            <li><strong>Removing Underlines and Adding Color:</strong>
+                <pre>
+a {
+    text-decoration: none;
+    color: #333;
+}
+                </pre>
+            </li>
+            <li><strong>Link Buttons:</strong> CSS properties to style links like buttons.</li>
+        </ul>
+
+        <h3>HTML Images</h3>
+<p><strong>Image Syntax:</strong> Basic <code>&lt;img&gt;</code> tag. Example:
+    <pre>
+&lt;img src="quickielearn.png" alt="Example Image" height="10"&gt;
+    </pre>
+</p>
+<ul>
+    <li><strong>src Attribute:</strong> Specifies the image path.</li>
+    <li><strong>alt Attribute:</strong> Provides alternative text.</li>
+    <li><strong>Width and Height:</strong> Resizing with attributes or CSS properties.</li>
+    <li><strong>Floating Images:</strong> Aligning images with CSS float for page layout.</li>
+</ul>
+
+
+        <button onclick="location.href='elaborate1.html'">Learn More</button>
+    </div>
+</body>
+</html>

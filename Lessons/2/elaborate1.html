@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #343a40;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 80%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        code {
+            color: #e74c3c;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-family: 'Courier New', Courier, monospace; /* Monospace font */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #555; /* Darker border */
+            border-radius: 5px;
+            background-color: #282c34; /* Dark background */
+            color: #fff; /* White text */
+            resize: none; /* Disable resizing */
+            outline: none; /* Remove outline */
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Inner shadow */
+        }
+
+        textarea::selection {
+            background: #007bff; /* Selection color */
+            color: white; /* Selection text color */
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="container">
+        <h1>Build Your Own Webpage</h1>
+        <p>Use the following instructions to build a simple webpage:</p>
+        <ul>
+            <li>Create a heading with <code>&lt;h1&gt;</code>.</li>
+            <li>Add a paragraph using <code>&lt;p&gt;</code>.</li>
+            <li>Style the paragraph with a background color using the <code>style</code> attribute.</li>
+            <li>Include styled links and buttons.</li>
+            <li>Add an image using the <code>&lt;img&gt;</code> tag.</li>
+        </ul>
+        <p>Example code:</p>
+        <pre>&lt;h1&gt;Welcome to My Webpage&lt;/h1&gt;
+&lt;p style="background-color: yellow;"&gt;This is a styled paragraph.&lt;/p&gt;
+&lt;a href="#" style="color: blue; text-decoration: none; background: #007bff; padding: 10px; border-radius: 5px; color: white;"&gt;Styled Link&lt;/a&gt;
+&lt;img src="example.png" alt="Example Image" style="width: 100px; height: auto;"&gt;</pre>
+
+        <!-- Live Code Editor -->
+        <h2>Live Code Editor: Try HTML Yourself</h2>
+        <p>Edit the HTML code below and see the live result in the preview pane. Incorporate all learned concepts!</p>
+        <textarea id="codeArea" oninput="updatePreview()">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Webpage</title>
+</head>
+<body>
+    <h1>Welcome to My Example Webpage</h1>
+    <p style="background-color: yellow;">This is a styled paragraph that has a yellow background color.</p>
+    <a href="#" style="color: blue; text-decoration: none; background: #007bff; padding: 10px; border-radius: 5px; color: white;">Styled Link</a>
+    <img src="example.png" alt="Example Image" style="width: 100px; height: auto;">
+</body>
+</html>
+        </textarea>
+        <button onclick="updatePreview()">Run Code</button>
+        <h3>Live Preview</h3>
+        <iframe id="preview"></iframe>
+
+       
+
+        <button onclick="location.href='evaluate1.html'">Test Your Knowledge</button>
+    </div>
+
+    <script>
+        function updatePreview() {
+            var code = document.getElementById("codeArea").value;
+            var previewFrame = document.getElementById("preview");
+            var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            preview.open();
+            preview.write(code);
+            preview.close();
+        }
+
+        // Initialize the preview with default content
+        window.onload = function() {
+            updatePreview();
+        };
+    </script>
+</body>
+</html>

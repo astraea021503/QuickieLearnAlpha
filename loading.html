@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn</title>
+    <link rel="stylesheet" href="styless.css">
+    <script>
+        // Start the loading animation and set a timer for redirection
+        window.onload = function() {
+            // Start the loading animation
+            const progressBar = document.querySelector('.progress-bar');
+            progressBar.style.width = '100%'; // Animate width to 100%
+
+            // Get the target URL from the query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetUrl = urlParams.get('target');
+
+            // Redirect after 2 seconds (matching the animation duration)
+            setTimeout(function() {
+                if (targetUrl) {
+                    window.location.href = decodeURIComponent(targetUrl); // Redirect to the target URL
+                } else {
+                    window.location.href = 'edithink.html'; // Default redirect if no target found
+                }
+            }, 2000); // Adjust time as needed
+        };
+    </script>
+</head>
+<body>
+    <div class="loading-container">
+        <img src="chibi.gif" alt="Loading" class="loading-image">
+        <div class="progress-bar"></div>
+    </div>
+</body>
+</html>

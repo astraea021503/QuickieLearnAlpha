@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn - Explore Advanced HTML and CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .text-content {
+            text-align: justify;
+        }
+        h1, h2, h3 {
+            color: #343a40;
+        }
+        ul {
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container">
+        <div class="text-content">
+            <h1>Explore Backgrounds, Lists, and Tables</h1>
+            <h2>Unleashing the Potential of HTML and CSS</h2>
+            <p>In this section, you'll explore how HTML and CSS work together to create visually appealing and functional web pages. This phase includes hands-on practice and detailed explanations of key concepts.</p>
+
+            <h3>Backgrounds</h3>
+            <p>Backgrounds are essential for enhancing your website's visual appeal. CSS offers extensive control over backgrounds:</p>
+            <ul>
+                <li><strong><code>background-color</code></strong>: Use a hexadecimal value, RGB, or color name to add color. Example: <code>background-color: #f0f0f0;</code>.</li>
+                <li><strong><code>background-image</code></strong>: Set an image or gradient as the background. Example: <code>background-image: linear-gradient(to right, #007bff, #0056b3);</code>.</li>
+                <li><strong><code>background-attachment</code></strong>: Control if the background scrolls or is fixed. Example: <code>background-attachment: fixed;</code>.</li>
+                <li><strong><code>background-position</code></strong>: Set the starting position of the background. Example: <code>background-position: center;</code>.</li>
+            </ul>
+            <p>Practice creating backgrounds for headers, sections, and full pages.</p>
+
+            <h3>Lists</h3>
+            <p>Lists help organize information and improve readability:</p>
+            <ul>
+                <li><strong>Ordered Lists</strong>: Used for sequences or rankings. Example:
+                    <code>
+                        <ol>
+                            <li>HTML Basics</li>
+                            <li>CSS Styling</li>
+                            <li>JavaScript Fundamentals</li>
+                        </ol>
+                    </code>
+                </li>
+                <li><strong>Unordered Lists</strong>: Suitable for items without a specific order. Customize with <code>list-style-type</code> (e.g., <code>circle</code>, <code>disc</code>, <code>square</code>).</li>
+                <li><strong>Nested Lists</strong>: Create sub-lists for detailed information:
+                    <code>
+                        <ul>
+                            <li>Main Topic
+                                <ul>
+                                    <li>Sub-topic 1</li>
+                                    <li>Sub-topic 2</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </code>
+                </li>
+            </ul>
+
+            <h3>Tables</h3>
+            <p>Tables are indispensable for presenting data. Advanced CSS properties allow you to style them effectively:</p>
+            <ul>
+                <li><strong><code>border-spacing</code></strong>: Adjust spacing between cells.</li>
+                <li><strong><code>nth-child</code></strong>: Style alternating rows or columns.</li>
+                <li><strong><code>caption-side</code></strong>: Place captions at the top or bottom of the table.</li>
+            </ul>
+            <p>Here’s an example:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fix bugs</td>
+                        <td>In Progress</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Add styles</td>
+                        <td>Completed</td>
+                        <td>Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Use tables to create pricing plans, schedules, or data comparisons.</p>
+
+            <button onclick="location.href='elaborate1.html'">Next</button>
+        </div>
+    </div>
+</body>
+</html>

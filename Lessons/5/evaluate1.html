@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            display: block; /* Always display the question */
+        }
+        .choice {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        .choice:hover {
+            background-color: #e9ecef;
+        }
+        .correct {
+            background-color: #c8e6c9; /* Light green for correct answer */
+        }
+        .incorrect {
+            background-color: #ffcdd2; /* Light red for incorrect answer */
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 100%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+    </style>
+    <script>
+        let currentQuestionIndex = 0;
+
+        const questions = [
+            {
+                question: "What is the purpose of the CSS Grid system?",
+                choices: [
+                    { text: "A. To create responsive layouts with columns and rows.", isCorrect: true },
+                    { text: "B. To style individual elements.", isCorrect: false },
+                    { text: "C. To create animations.", isCorrect: false },
+                    { text: "D. To add background images to the page.", isCorrect: false },
+                ]
+            },
+            {
+                question: "How do you define a grid container in CSS?",
+                choices: [
+                    { text: "A. display: flex;", isCorrect: false },
+                    { text: "B. display: block;", isCorrect: false },
+                    { text: "C. display: grid;", isCorrect: true },
+                    { text: "D. grid: true;", isCorrect: false },
+                ]
+            },
+            {
+                question: "What property is used to define the number of columns in a CSS grid?",
+                choices: [
+                    { text: "A. grid-template-rows", isCorrect: false },
+                    { text: "B. grid-template-columns", isCorrect: true },
+                    { text: "C. grid-columns", isCorrect: false },
+                    { text: "D. grid-rows", isCorrect: false },
+                ]
+            },
+            {
+                question: "How do you set the size of grid items in CSS?",
+                choices: [
+                    { text: "A. By using the grid-area property.", isCorrect: false },
+                    { text: "B. By specifying values for grid-template-columns or grid-template-rows.", isCorrect: true },
+                    { text: "C. By using margin and padding.", isCorrect: false },
+                    { text: "D. By applying display: block to each item.", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which of the following is a correct syntax for creating a grid layout with three columns?",
+                choices: [
+                    { text: "A. grid-template-columns: 1fr 1fr 1fr;", isCorrect: true },
+                    { text: "B. grid-template-rows: 1fr 1fr 1fr;", isCorrect: false },
+                    { text: "C. grid-columns: 3;", isCorrect: false },
+                    { text: "D. display: grid; columns: 3;", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which CSS property is used to create space between grid items?",
+                choices: [
+                    { text: "A. grid-gap", isCorrect: true },
+                    { text: "B. gap", isCorrect: true },
+                    { text: "C. padding", isCorrect: false },
+                    { text: "D. margin", isCorrect: false },
+                ]
+            },
+            {
+                question: "How can you create a responsive image gallery layout using CSS Grid?",
+                choices: [
+                    { text: "A. By setting grid-template-rows and grid-template-columns to fixed values.", isCorrect: false },
+                    { text: "B. By using grid-template-columns with auto-fit and minmax.", isCorrect: true },
+                    { text: "C. By using flexbox.", isCorrect: false },
+                    { text: "D. By setting display: block to each image.", isCorrect: false },
+                ]
+            },
+            {
+                question: "What does the 'fr' unit in CSS Grid represent?",
+                choices: [
+                    { text: "A. It represents a fixed value.", isCorrect: false },
+                    { text: "B. It represents a fraction of the available space.", isCorrect: true },
+                    { text: "C. It represents a percentage.", isCorrect: false },
+                    { text: "D. It represents the total number of rows.", isCorrect: false },
+                ]
+            },
+            {
+                question: "What is the purpose of the 'grid-template-areas' property in CSS Grid?",
+                choices: [
+                    { text: "A. To define the layout of grid items using named areas.", isCorrect: true },
+                    { text: "B. To define how grid items should be aligned.", isCorrect: false },
+                    { text: "C. To specify grid column widths.", isCorrect: false },
+                    { text: "D. To set the size of the grid container.", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which of the following is a benefit of using CSS Grid over Flexbox?",
+                choices: [
+                    { text: "A. It allows for two-dimensional layouts with both rows and columns.", isCorrect: true },
+                    { text: "B. It works only for horizontal layouts.", isCorrect: false },
+                    { text: "C. It is easier to implement than Flexbox.", isCorrect: false },
+                    { text: "D. It is only supported by modern browsers.", isCorrect: false },
+                ]
+            },
+            {
+                question: "How do you make a grid item span across multiple columns?",
+                choices: [
+                    { text: "A. By using the span keyword in grid-column.", isCorrect: true },
+                    { text: "B. By setting grid-template-columns to multiple values.", isCorrect: false },
+                    { text: "C. By using the grid-area property.", isCorrect: false },
+                    { text: "D. By using grid-template-rows.", isCorrect: false },
+                ]
+            },
+            {
+                question: "What does the 'minmax()' function do in CSS Grid?",
+                choices: [
+                    { text: "A. It sets a minimum and maximum width or height for grid items.", isCorrect: true },
+                    { text: "B. It defines a minimum and maximum number of rows.", isCorrect: false },
+                    { text: "C. It creates minimum and maximum grid containers.", isCorrect: false },
+                    { text: "D. It defines minimum and maximum font sizes.", isCorrect: false },
+                ]
+            }
+        ];
+
+        function loadQuestion() {
+            const questionContainer = document.getElementById('questionContainer');
+            const currentQuestion = questions[currentQuestionIndex];
+            questionContainer.innerHTML = `
+                <div class="question">
+                    <h3>${currentQuestion.question}</h3>
+                    ${currentQuestion.choices.map((choice) => `
+                        <div class="choice" onclick="checkAnswer(${choice.isCorrect}, this)">${choice.text}</div>
+                    `).join('')}
+                </div>
+            `;
+            isAnswerCorrect = false; // Reset answer status for the new question
+        }
+
+        function checkAnswer(isCorrect, element) {
+            if (isCorrect) {
+                alert("Correct! " + questions[currentQuestionIndex].choices.find(c => c.isCorrect).text);
+                element.classList.add('correct');
+                isAnswerCorrect = true; // Set answer status to true
+            } else {
+                alert("Incorrect! Try again.");
+                element.classList.add('incorrect');
+                isAnswerCorrect = false; // Set answer status to false
+            }
+        }
+
+        function nextQuestion() {
+            if (!isAnswerCorrect) {
+                alert("Please select the correct answer before proceeding.");
+                return; // Prevent moving to the next question if the answer is incorrect
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                const button = document.querySelector('button');
+                button.innerHTML = "Go to Home"; // Change button text
+                button.setAttribute("onclick", "window.location.href='../../lessons.html';");
+                alert("You've completed the quiz!");
+            }
+        }
+
+        window.onload = function() {
+            loadQuestion();
+        };
+    </script>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="container">
+        <h1>Test your Knowledge</h1>
+        <p>Answer the following questions to see how much you’ve learned:</p>
+        <div id="questionContainer"></div>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+</body>
+</html>

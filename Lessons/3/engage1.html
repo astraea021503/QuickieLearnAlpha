@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quickie Learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .flex-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 70%;
+            text-align: justify; /* Justifies the text */
+        }
+        .image-container {
+            width: 25%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            width: 100%;
+        }
+        .choice {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        .choice:hover {
+            background-color: #e9ecef;
+        }
+        .correct {
+            background-color: #c8e6c9; /* Light green for correct answer */
+        }
+        .incorrect {
+            background-color: #ffcdd2; /* Light red for incorrect answer */
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 20%; /* Adjust initial width for progress */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+    </style>
+    <script>
+        function checkAnswer(isCorrect, element) {
+            if (isCorrect) {
+                alert("Correct! Using CSS properties enhances the visual appeal and structure of a webpage.");
+                element.classList.add('correct');
+            } else {
+                alert("Incorrect! Try again.");
+                element.classList.add('incorrect');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container">
+        <div class="flex-content">
+            <div class="text-content">
+                <h1>Welcome to Advanced HTML and CSS</h1>
+                <h2>Discover Backgrounds, Lists, and Tables</h2>
+                <p>Do you know how much difference a simple background, a neatly styled list, or a structured table can make on a webpage? These elements are vital to creating visually appealing and well-structured websites.</p>
+                <p>Imagine a webpage with plain text versus one with a vibrant background, well-organized lists, and elegant tables. The second one doesn't just look better—it feels more engaging. Let’s explore how these advanced HTML and CSS techniques bring webpages to life!</p>
+            </div>
+            <div class="image-container">
+                <img src="animated.gif" alt="Advanced CSS Preview">
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Section -->
+    <div class="container">
+        <div class="question">
+            <h3>What is the purpose of using CSS for backgrounds, lists, and tables?</h3>
+            <div class="choice" onclick="checkAnswer(false, this)">A. To write HTML code faster.</div>
+            <div class="choice" onclick="checkAnswer(true, this)">B. To enhance the visual design and user experience of a webpage.</div>
+            <div class="choice" onclick="checkAnswer(false, this)">C. To make webpages load faster.</div>
+            <div class="choice" onclick="checkAnswer(false, this)">D. To make the webpage accessible only on certain browsers.</div>
+        </div>
+        <!-- Start Exploring Button -->
+        <button onclick="location.href='explore1.html'">Start Exploring Advanced CSS</button>
+    </div>
+</body>
+</html>

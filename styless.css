@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.loading-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center; /* Center the image */
+}
+
+.loading-image {
+    max-width: 50%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between image and progress bar */
+}
+
+.progress-bar {
+    width: 0; /* Start at 0 */
+    height: 30px; /* Height of the loading bar */
+    background-color: #a56abd; /* Color of the loading bar */
+    transition: width 2s linear; /* Animate width over 3 seconds */
+}

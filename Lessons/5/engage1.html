@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .flex-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 70%;
+            text-align: justify; /* Justifying the text */
+        }
+        .image-container {
+            width: 25%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            width: 100%;
+        }
+        .choice {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        .choice:hover {
+            background-color: #e9ecef;
+        }
+        .correct {
+            background-color: #c8e6c9; /* Light green for correct answer */
+        }
+        .incorrect {
+            background-color: #ffcdd2; /* Light red for incorrect answer */
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 20%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+    </style>
+    <script>
+        function checkAnswer(isCorrect, element) {
+            if (isCorrect) {
+                alert("Correct! CSS Grid makes it easier to create complex layouts without relying on floats or positioning.");
+                element.classList.add('correct');
+            } else {
+                alert("Incorrect! Try again.");
+                element.classList.add('incorrect');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- This container contains the text and image side by side -->
+    <div class="container">
+        <div class="flex-content">
+            <div class="text-content">
+                <h1>Welcome to CSS Grids</h1>
+                <h2>Get Ready to Explore Advanced Layouts!</h2>
+                <p>CSS Grid is a powerful layout system that allows you to create complex and responsive layouts with ease. Unlike traditional methods that rely on floats or flexbox, CSS Grid gives you more control over the arrangement of content. Whether it's creating a photo gallery, a two-dimensional grid, or even a complex web page structure, CSS Grid can help you achieve your goals more efficiently.</p>
+                <p>Now, let's consider: how do you think a CSS Grid layout compares to the traditional float-based layout? Which one seems more efficient for responsive design?</p>
+            </div>
+            <div class="image-container">
+                <img src="animated.gif" alt="Chibi Question Mark">
+            </div>
+        </div>
+    </div>
+
+    <!-- This container contains the question and the button below it -->
+    <div class="container">
+        <div class="question">
+            <h3>Which layout method would you prefer for creating flexible, responsive designs?</h3>
+            <div class="choice" onclick="checkAnswer(false, this)">A. Floating elements using traditional methods</div>
+            <div class="choice" onclick="checkAnswer(true, this)">B. Using CSS Grid for a more flexible and structured layout</div>
+            <div class="choice" onclick="checkAnswer(false, this)">C. Using tables to create layout structures</div>
+            <div class="choice" onclick="checkAnswer(false, this)">D. Relying solely on fixed positioning for layout</div>
+        </div>
+        <!-- The button is placed below the question -->
+        <button onclick="location.href='explore1.html'">Start Exploring CSS Grid</button>
+    </div>
+
+</body>
+</html>

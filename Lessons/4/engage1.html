@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quickie Learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .flex-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 70%;
+            text-align: justify; /* Justifying the text */
+        }
+        .image-container {
+            width: 25%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            width: 100%;
+        }
+        .choice {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        .choice:hover {
+            background-color: #e9ecef;
+        }
+        .correct {
+            background-color: #c8e6c9; /* Light green for correct answer */
+        }
+        .incorrect {
+            background-color: #ffcdd2; /* Light red for incorrect answer */
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 20%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+    </style>
+    <script>
+        function checkAnswer(isCorrect, element) {
+            if (isCorrect) {
+                alert("Correct! The webpage may render incorrectly or cause unexpected behavior.");
+                element.classList.add('correct');
+            } else {
+                alert("Incorrect! Try again.");
+                element.classList.add('incorrect');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- This container contains the text and image side by side -->
+    <div class="container">
+        <div class="flex-content">
+            <div class="text-content">
+                <h1>Welcome to CSS Layout Mastery</h1>
+                <h2>Learn about Navigation Bars and Dropdowns!</h2>
+                <p>Navigation bars and dropdown menus are essential for any modern website. They help users quickly find what they're looking for, whether it's a specific page or more content. Let’s explore how these elements can improve the layout and design of a website.</p>
+                <p>In this exercise, we will compare two versions of a webpage—one without a navigation bar and one with a complete navigation bar and dropdown menu. What do you think will be the difference in terms of usability?</p>
+            </div>
+            <div class="image-container">
+                <img src="animated.gif" alt="Chibi Question Mark">
+            </div>
+        </div>
+    </div>
+
+    <!-- This container contains the question and the button below it -->
+    <div class="container">
+        <div class="question">
+            <h3>What do you think will happen if a website lacks a navigation bar?</h3>
+            <div class="choice" onclick="checkAnswer(false, this)">A. The website will still function normally without any issues.</div>
+            <div class="choice" onclick="checkAnswer(true, this)">B. Users will find it difficult to navigate and find pages quickly.</div>
+            <div class="choice" onclick="checkAnswer(false, this)">C. The website will automatically create a navigation menu.</div>
+            <div class="choice" onclick="checkAnswer(false, this)">D. The website will have a better design without navigation bars.</div>
+        </div>
+        <!-- The button is placed below the question -->
+        <button onclick="location.href='explore1.html'">Start Exploring CSS Layouts</button>
+    </div>
+
+</body>
+</html>

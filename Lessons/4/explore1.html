@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quickie Learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 40%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+        .nav-bar ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #007bff;
+            text-align: center;
+            margin: 0;
+        }
+        .nav-bar li {
+            display: inline-block;
+            position: relative;
+        }
+        .nav-bar a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .nav-bar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-bar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #343a40;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .nav-bar .dropdown-content a {
+            color: white;
+            padding: 10px 20px;
+        }
+        .nav-bar .dropdown-content a:hover {
+            background-color: #007bff;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            width: 100%;
+        }
+        .choice {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        .choice:hover {
+            background-color: #e9ecef;
+        }
+        .correct {
+            background-color: #c8e6c9;
+        }
+        .incorrect {
+            background-color: #ffcdd2;
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            resize: vertical;
+        }
+        button.copy-btn {
+            margin-top: 10px;
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="container">
+        <h1>Experiment with Navigation and Dropdown Menus</h1>
+        <p>Now, let's try modifying the navigation bar and dropdown menu. You can change the menu items, colors, and more!</p>
+
+        <section>
+            <h2>Instructions:</h2>
+            <p>In this phase, you will have the opportunity to explore the differences between the simple webpage (Version 1) and the webpage with a navigation bar and dropdown menu (Version 2). Here are some tasks to get started:</p>
+            <ul>
+                <li>Modify the navigation items in Version 2 by changing the text or adding new menu items.</li>
+                <li>Change the background color of the navigation bar to a color of your choice.</li>
+                <li>Experiment with the dropdown menu by adding more submenu items or changing their colors.</li>
+                <li>Change the font style of the page to something different.</li>
+            </ul>
+        </section>
+
+        <!-- Version 1: Simple Webpage -->
+        <section id="version1" class="version">
+            <h2>Version 1: Basic Webpage (No Navigation)</h2>
+            <div class="flex-content">
+                <div class="text-content">
+                    <p>This is a simple webpage with no navigation bar, making it difficult to navigate between sections.</p>
+                    <div class="simple-content">
+                        <h3>Content Section</h3>
+                        <p>Here's some basic content that might be difficult to access without a navigation menu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code for Version 1 -->
+        <section>
+            <h3>Copy the Code for Version 1:</h3>
+            <textarea id="codeVersion1" readonly>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Version 1: Basic Webpage</title>
+</head>
+<body>
+    <h1>Welcome to Version 1</h1>
+    <p>This is a simple webpage with no navigation bar.</p>
+</body>
+</html>
+            </textarea>
+            <button class="copy-btn" onclick="copyCode('codeVersion1')">Copy Code</button>
+        </section>
+
+        <!-- Version 2: Webpage with Navigation -->
+        <section id="version2" class="version">
+            <h2>Version 2: Webpage with Navigation Bar and Dropdown</h2>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#">More &#9662;</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Submenu 1</a></li>
+                            <li><a href="#">Submenu 2</a></li>
+                            <li><a href="#">Submenu 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex-content">
+                <div class="text-content">
+                    <p>This is a webpage with a navigation bar and a dropdown menu, making it much easier to access different sections.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code for Version 2 -->
+        <section>
+            <h3>Copy the Code for Version 2:</h3>
+            <textarea id="codeVersion2" readonly>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Version 2: Webpage with Navigation</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="dropdown">
+                <a href="#">More &#9662;</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Submenu 1</a></li>
+                    <li><a href="#">Submenu 2</a></li>
+                    <li><a href="#">Submenu 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h1>Welcome to Version 2</h1>
+    <p>This webpage includes a navigation bar and dropdown menu for easy access to different sections.</p>
+</body>
+</html>
+            </textarea>
+            <button class="copy-btn" onclick="copyCode('codeVersion2')">Copy Code</button> <br><br>
+            <button onclick="location.href='elaborate1.html'">Next</button>
+        </section>
+
+    </div>
+
+    <script>
+        function copyCode(id) {
+            var copyText = document.getElementById(id);
+            copyText.select();
+            document.execCommand("copy");
+            alert("Code copied to clipboard!");
+        }
+    </script>
+</body>
+</html>

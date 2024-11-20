@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quickie Learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-container input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 80%; /* Progress bar indicating the Elaborate Phase */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="container">
+        <h1>CSS Layout Mastery</h1>
+        <p>In this phase, you'll enhance the webpage by adding a contact form and other interactive features.</p>
+
+        <section>
+            <h2>Instructions:</h2>
+            <p>Follow these steps to complete the task:</p>
+            <ul>
+                <li>Add a form with name, email, and message fields.</li>
+                <li>Style the form to make it visually appealing using CSS.</li>
+                <li>Implement JavaScript to show a confirmation message when the form is submitted.</li>
+            </ul>
+        </section>
+
+        <section id="form-section">
+            <h2>Contact Form</h2>
+            <p>Fill out the form below and submit it:</p>
+
+            <!-- Form Code -->
+            <div class="form-container">
+                <form id="contact-form">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <input type="submit" value="Submit" onclick="submitForm(event)">
+                </form>
+            </div>
+        </section>
+
+        <section>
+            <h2>How to Use the Code:</h2>
+            <p>To use this code:</p>
+            <ol>
+                <li>Copy the code below.</li>
+                <li>Paste it into your editor (e.g., Sublime Text or Visual Studio Code).</li>
+                <li>Save it as an HTML file and open it in your browser to test the form and functionality.</li>
+            </ol>
+        </section>
+
+        <!-- Code Block for Copying -->
+        <section>
+            <h2>Copy the Code:</h2>
+            <pre id="html-code">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;link rel="shortcut icon" type="x-icon" href="quickielearn.png"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;QuickieLearn: CSS Layout Mastery - Elaborate Phase&lt;/title&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet"&gt;
+    &lt;style&gt;
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-container input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .copy-button:hover {
+            background-color: #218838;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="progress-container"&gt;
+        &lt;div class="progress-bar"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Elaborate Your Webpage!&lt;/h1&gt;
+        &lt;p&gt;In this phase, you'll enhance the webpage by adding a contact form and other interactive features.&lt;/p&gt;
+        &lt;!-- Form Code --&gt;
+        &lt;div class="form-container"&gt;
+            &lt;form id="contact-form"&gt;
+                &lt;label for="name"&gt;Your Name:&lt;/label&gt;
+                &lt;input type="text" id="name" name="name" required&gt;
+                &lt;label for="email"&gt;Your Email:&lt;/label&gt;
+                &lt;input type="email" id="email" name="email" required&gt;
+                &lt;label for="message"&gt;Your Message:&lt;/label&gt;
+                &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;
+                &lt;input type="submit" value="Submit"&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+            <button class="copy-button" onclick="copyCode()">Copy Code</button>
+            <button onclick="location.href='evaluate1.html'">Next</button>
+        </section>
+
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = document.getElementById('html-code').innerText;
+            navigator.clipboard.writeText(code)
+                .then(() => alert('Code copied to clipboard!'))
+                .catch(err => alert('Error copying code: ' + err));
+        }
+    </script>
+</body>
+</html>

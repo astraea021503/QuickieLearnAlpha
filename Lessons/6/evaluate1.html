@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            display: block;
+        }
+        .choice {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        .choice:hover {
+            background-color: #e9ecef;
+        }
+        .correct {
+            background-color: #c8e6c9; /* Light green for correct answer */
+        }
+        .incorrect {
+            background-color: #ffcdd2; /* Light red for incorrect answer */
+        }
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 100%; /* Initial width */
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s; /* Smooth transition for width change */
+        }
+    </style>
+    <script>
+        let currentQuestionIndex = 0;
+
+        const questions = [
+            {
+                question: "Which CSS property is used to style the background color of a form element?",
+                choices: [
+                    { text: "A. background-color", isCorrect: true },
+                    { text: "B. color", isCorrect: false },
+                    { text: "C. border", isCorrect: false },
+                    { text: "D. padding", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which property would you use to add space between the content of an input field and its border?",
+                choices: [
+                    { text: "A. margin", isCorrect: false },
+                    { text: "B. padding", isCorrect: true },
+                    { text: "C. border-radius", isCorrect: false },
+                    { text: "D. text-align", isCorrect: false },
+                ]
+            },
+            {
+                question: "What does the <code>focus</code> pseudo-class do in CSS?",
+                choices: [
+                    { text: "A. It styles an element when the page is loaded.", isCorrect: false },
+                    { text: "B. It styles an element when it is clicked or focused.", isCorrect: true },
+                    { text: "C. It removes the border of an input field.", isCorrect: false },
+                    { text: "D. It changes the background color of an element on hover.", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which CSS property can you use to change the font size of input text?",
+                choices: [
+                    { text: "A. font-size", isCorrect: true },
+                    { text: "B. font-style", isCorrect: false },
+                    { text: "C. line-height", isCorrect: false },
+                    { text: "D. text-transform", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which of the following CSS properties can be used to style the border of a form element?",
+                choices: [
+                    { text: "A. border-width", isCorrect: true },
+                    { text: "B. border-spacing", isCorrect: false },
+                    { text: "C. border-radius", isCorrect: false },
+                    { text: "D. all of the above", isCorrect: true },
+                ]
+            },
+            {
+                question: "Which CSS property would you use to make the text inside a form input field bold?",
+                choices: [
+                    { text: "A. font-weight", isCorrect: true },
+                    { text: "B. text-decoration", isCorrect: false },
+                    { text: "C. font-style", isCorrect: false },
+                    { text: "D. text-transform", isCorrect: false },
+                ]
+            },
+            {
+                question: "What is the purpose of the <code>placeholder</code> attribute in an input field?",
+                choices: [
+                    { text: "A. It defines a default value for the input field.", isCorrect: false },
+                    { text: "B. It provides a hint to the user about what to enter in the input field.", isCorrect: true },
+                    { text: "C. It sets the width of the input field.", isCorrect: false },
+                    { text: "D. It sets the background color of the input field.", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which property would you use to remove the default outline of an input element when focused?",
+                choices: [
+                    { text: "A. outline: none;", isCorrect: true },
+                    { text: "B. border: none;", isCorrect: false },
+                    { text: "C. background: transparent;", isCorrect: false },
+                    { text: "D. display: none;", isCorrect: false },
+                ]
+            },
+            {
+                question: "Which CSS property allows you to control the width of a form element?",
+                choices: [
+                    { text: "A. width", isCorrect: true },
+                    { text: "B. height", isCorrect: false },
+                    { text: "C. margin", isCorrect: false },
+                    { text: "D. padding", isCorrect: false },
+                ]
+            },
+            {
+                question: "What does the <code>:hover</code> pseudo-class do?",
+                choices: [
+                    { text: "A. It applies styles when an element is clicked.", isCorrect: false },
+                    { text: "B. It applies styles when the mouse hovers over an element.", isCorrect: true },
+                    { text: "C. It applies styles to elements that are focused.", isCorrect: false },
+                    { text: "D. It applies styles when an element is in its normal state.", isCorrect: false },
+                ]
+            }
+        ];
+
+        function loadQuestion() {
+            const questionContainer = document.getElementById('questionContainer');
+            const currentQuestion = questions[currentQuestionIndex];
+            questionContainer.innerHTML = `
+                <div class="question">
+                    <h3>${currentQuestion.question}</h3>
+                    ${currentQuestion.choices.map((choice) => `
+                        <div class="choice" onclick="checkAnswer(${choice.isCorrect}, this)">${choice.text}</div>
+                    `).join('')}
+                </div>
+            `;
+            isAnswerCorrect = false;
+        }
+
+        function checkAnswer(isCorrect, element) {
+            if (isCorrect) {
+                alert("Correct! " + questions[currentQuestionIndex].choices.find(c => c.isCorrect).text);
+                element.classList.add('correct');
+                isAnswerCorrect = true;
+            } else {
+                alert("Incorrect! Try again.");
+                element.classList.add('incorrect');
+                isAnswerCorrect = false;
+            }
+        }
+
+        function nextQuestion() {
+            if (!isAnswerCorrect) {
+                alert("Please select the correct answer before proceeding.");
+                return;
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                const button = document.querySelector('button');
+                button.innerHTML = "Go to Home"; 
+                button.setAttribute("onclick", "window.location.href='../../lessons.html';");
+                alert("You've completed the quiz!");
+            }
+        }
+
+        window.onload = function() {
+            loadQuestion();
+        };
+    </script>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="container">
+        <h1>Test your Knowledge</h1>
+        <p>Answer the following questions to see how much you’ve learned about CSS Form Styling:</p>
+        <div id="questionContainer"></div>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+</body>
+</html>

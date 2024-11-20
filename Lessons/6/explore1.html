@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="quickielearn.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickieLearn - CSS Form Styling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+        }
+        .container {
+            width: 70%;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-size: 18px;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="password"], textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+            border-color: #007bff;
+            background-color: #e9f7ff;
+        }
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+            color: #333;
+        }
+
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="container">
+        <h1>CSS Form Styling - Explore & Experiment</h1>
+        <p>In this exercise, you will experiment with various CSS styles applied to form elements. Modify the input fields, buttons, and text areas and observe the changes in the form's behavior and appearance.</p>
+
+        <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" placeholder="Enter your full name">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="Enter your email address">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Create a password">
+
+            <label for="comments">Additional Comments:</label>
+            <textarea id="comments" placeholder="Write your comments here..."></textarea>
+
+            <button onclick="submitForm()">Submit Form</button>
+        </div>
+
+        <div class="feedback" id="feedback"></div>
+
+         <button onclick="location.href='explain1.html'">Next</button>
+    </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const fullname = document.getElementById("fullname").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const comments = document.getElementById("comments").value;
+
+            const feedback = document.getElementById("feedback");
+
+            if (!fullname || !email || !password || !comments) {
+                feedback.innerHTML = "<p style='color: red;'>Please complete all the fields before submitting.</p>";
+            } else {
+                feedback.innerHTML = "<p style='color: #007bff;'>Form submitted successfully! Thank you, " + fullname + ".</p>";
+            }
+        }
+    </script>
+</body>
+</html>
